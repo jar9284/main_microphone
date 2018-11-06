@@ -26,7 +26,6 @@ Declare_Interupts:
 
 Declare_Variables:
 	mov [sound_state_mode], 00h							; clears the variable - might not be needed
-	mov [_timer_ms], 00h								; clears the variable - might not be needed
 	mov [_timer_s], 00h									; clears the variable - might not be needed
 	mov [_timer_m], 00h									; clears the variable - might not be needed
 	mov [_timer_h], 00h									; clears the variable - might not be needed
@@ -57,7 +56,6 @@ sound_mode:
 	lcall LCD_1_PrCString								; prints the literal on our LCD
 	
 sound_start:
-	mov [_timer_ms], 00h								; clears the variable
 	mov [_timer_s], 00h									; clears the variable
 	mov [_timer_m], 00h									; clears the variable
 	mov [_timer_h], 00h									; clears the variable
@@ -120,7 +118,7 @@ db 00h
 
 .LITERAL												; literal for sound mode descriptor for LCD - Source: http://www.cypress.com/file/72341/download
 DEFAULT_TIME:
-ds "00:00:00:00"										; might need to add more spaces for LCD row after "00:00:00:00"
+ds "00:00:00"										; might need to add more spaces for LCD row after "00:00:00"
 db 00h
 .ENDLITERAL
 
